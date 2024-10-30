@@ -1,0 +1,22 @@
+#kurrentmusic_jukeblog_meta_sectionid label {
+  display: inline-block;
+  width: 100px; }
+#kurrentmusic_jukeblog_meta_sectionid input {
+  margin-left: 10px !important; }
+#kurrentmusic_jukeblog_meta_sectionid .kmv-lookupbtn {
+  margin: 0 5px;
+  cursor: pointer; }
+#kurrentmusic_jukeblog_meta_sectionid .layers-form-item {
+  margin-bottom: 10px; }
+#kurrentmusic_jukeblog_meta_sectionid #kurrentmusic_jukeblog_album_options {
+  width: auto;
+  min-width: 0;
+  max-width: 80%; }
+#kurrentmusic_jukeblog_meta_sectionid #kurrentmusic_jukeblog_update_artist {
+  margin-top: 5px; }
+#kurrentmusic_jukeblog_meta_sectionid .kmv_disclaimer {
+  display: block;
+  margin-top: 10px;
+  padding-left: 110px;
+  font-size: .7em;
+  font-style: italic; }

@@ -1,0 +1,503 @@
+@import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+/*==== reusable bits =====*/
+[class^="kmi-"], [class*=" kmi-"] {
+  vertical-align: middle;
+  text-decoration: none !important; }
+
+.kmv-image-blur-container {
+  position: absolute;
+  z-index: 0;
+  left: -20px;
+  right: -20px;
+  bottom: -60px;
+  top: -20px; }
+  .kmv-image-blur-container .kmv-canvas-blur {
+    opacity: 0.25;
+    width: 100%;
+    height: 100%;
+    position: relative; }
+    .kmv-image-blur-container .kmv-canvas-blur image {
+      width: 100%;
+      height: 100%;
+      fill: green;
+      filter: url(#kmv-blur-effect-2); }
+
+.kmv-content {
+  display: block;
+  z-index: 1;
+  position: relative;
+  padding: 1px;
+  min-height: 220px; }
+
+.kmv-hidden {
+  display: none !important; }
+
+.kmv-errormessage {
+  background: #85db18 url("../img/ph-bg.jpg") no-repeat center center;
+  background-size: cover;
+  padding: 15px;
+  color: #fff; }
+  .kmv-errormessage .kmv-branding {
+    background: transparent url("../img/kmlogowhite.svg") no-repeat right center;
+    background-size: contain;
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+    text-indent: -9999px;
+    display: inline-block; }
+  .kmv-errormessage i {
+    margin: 0; }
+  .kmv-errormessage h5 {
+    font-weight: 200;
+    margin: 0;
+    color: #fff; }
+  .kmv-errormessage h6 {
+    margin: 5px 0;
+    color: #fff;
+    font-size: 80%; }
+  .kmv-errormessage p {
+    font-size: 80%;
+    margin: 0; }
+  .kmv-errormessage a {
+    color: #fff; }
+
+.kmwp-placeholder {
+  position: relative;
+  width: 100%; }
+
+.kmv-bg-image {
+  position: absolute;
+  z-index: 0;
+  opacity: 0.4;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  min-width: 100%;
+  min-height: 100%;
+  filter: url(../img/blur.svg#blur);
+  -webkit-filter: blur(40px);
+  -webkit-transform: translate3d(0, 0, 0);
+  filter: blur(40px);
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='40'); }
+
+.kmv-blurassist {
+  display: none; }
+
+.kmv-img-blur {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: transparent; }
+
+.kmv-image-blur {
+  z-index: 0; }
+
+.kmv-animate, .kmv-wp-widget.small .kmv-songs-list, .kmv-wp-widget .kmv-discography .content, .kmv-wp-widget .kmv-social-channels i {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out; }
+
+.kmv-loading {
+  color: #85db18;
+  padding: 5px;
+  margin: 0 auto;
+  text-align: center; }
+
+.kmv-releaseinfo {
+  position: absolute;
+  top: -10px;
+  right: 0; }
+  .kmv-releaseinfo h6 {
+    display: none; }
+
+.kmv-top10-albumname {
+  margin: 0;
+  padding: 0;
+  display: block;
+  font-size: 0.8em;
+  opacity: .6; }
+
+.kmv-top10-songname {
+  margin: 0;
+  padding: 0;
+  display: block;
+  font-weight: 600; }
+
+.kmv-wp-widget {
+  box-sizing: border-box;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding: 20px 20px 40px 20px;
+  max-width: 700px; }
+  .kmv-wp-widget * {
+    box-sizing: inherit; }
+  .kmv-wp-widget h6 {
+    margin: 10px 0; }
+  .kmv-wp-widget > div {
+    position: relative; }
+  .kmv-wp-widget .kmv-album-image {
+    max-width: 100%;
+    background-size: contain;
+    background-position: center center;
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    background-repeat: no-repeat;
+    margin-top: 30px;
+    text-align: center; }
+  .kmv-wp-widget li .kmv-album-image {
+    margin: 0; }
+  .kmv-wp-widget .kmv-album-heading {
+    position: relative;
+    padding-top: 10px; }
+  .kmv-wp-widget .kmv-album-name {
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: 10px 0;
+    font-weight: 600;
+    padding-left: 10px; }
+  .kmv-wp-widget .kmv-album-info {
+    display: block;
+    text-transform: none; }
+  .kmv-wp-widget .kmv-toggle-songs-list {
+    display: none; }
+  .kmv-wp-widget .kmv-artist-info {
+    margin-left: 10px; }
+    .kmv-wp-widget .kmv-artist-info p {
+      margin: 0; }
+  .kmv-wp-widget .kmv-artist-name {
+    text-transform: uppercase;
+    margin: 0;
+    padding-top: 10px;
+    margin-bottom: 10px; }
+  .kmv-wp-widget .kmv-release-date {
+    left: 20px;
+    bottom: 16px;
+    font-size: .8em;
+    position: absolute; }
+  .kmv-wp-widget .kmv-branding {
+    background: transparent url("../img/poweredbykm2.svg") no-repeat center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center right;
+    padding-right: 50px;
+    border: none;
+    box-shadow: none;
+    overflow: hidden;
+    display: block;
+    width: 120px;
+    height: 40px;
+    position: absolute;
+    right: 10px;
+    bottom: 12px;
+    text-decoration: none;
+    vertical-align: left;
+    font-size: .7em;
+    z-index: 1;
+    text-indent: -9999px;
+    text-shadow: 0 3px 3px rgba(0, 0, 0, 0.5); }
+  .kmv-wp-widget .kmv-copyright {
+    font-size: .7em; }
+  .kmv-wp-widget .kmv-release-date {
+    position: static;
+    text-align: right;
+    font-size: 1em; }
+  .kmv-wp-widget.wide .kmv-album-image {
+    width: 30%;
+    display: block;
+    float: left;
+    position: relative;
+    overflow: hidden; }
+    .kmv-wp-widget.wide .kmv-album-image img {
+      width: 100%; }
+  .kmv-wp-widget.wide .kmv-album .kmv-album-info {
+    float: left;
+    padding-left: 10px; }
+    .kmv-wp-widget.wide .kmv-album .kmv-album-info:after {
+      content: '';
+      clear: both;
+      float: none; }
+  .kmv-wp-widget.wide .kmv-album .kmv-copyright {
+    clear: both; }
+  .kmv-wp-widget.wide .kmv-album-heading {
+    width: 65%;
+    display: inline-block;
+    margin-top: 20px; }
+  .kmv-wp-widget.small {
+    font-size: .9em;
+    padding: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 40px; }
+    .kmv-wp-widget.small h3 {
+      font-size: 1.2em; }
+    .kmv-wp-widget.small p, .kmv-wp-widget.small li, .kmv-wp-widget.small h6 {
+      font-size: 100%; }
+    .kmv-wp-widget.small li::before {
+      content: '';
+      display: none; }
+    .kmv-wp-widget.small .kmv-social-channels a {
+      text-align: left; }
+    .kmv-wp-widget.small .kmv-social-channels i {
+      font-size: 14px;
+      margin-right: 5px;
+      margin-left: 0; }
+    .kmv-wp-widget.small .kmv-preview-player {
+      display: none; }
+    .kmv-wp-widget.small .kmv-toggle-songs-list {
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 20px;
+      opacity: .5;
+      cursor: pointer;
+      font-size: 16px; }
+    .kmv-wp-widget.small .kmv-songs-list {
+      overflow: hidden;
+      height: 0;
+      margin: 0 0 0 10px;
+      display: block;
+      border-top: none; }
+      .kmv-wp-widget.small .kmv-songs-list li {
+        padding: 0; }
+      .kmv-wp-widget.small .kmv-songs-list.kmv-expanded {
+        height: auto;
+        margin-left: 0; }
+        .kmv-wp-widget.small .kmv-songs-list.kmv-expanded li {
+          padding-left: 25px; }
+    .kmv-wp-widget.small .kmv-discography, .kmv-wp-widget.small .kmv-top10, .kmv-wp-widget.small .kmv-blogs, .kmv-wp-widget.small .kmv-album, .kmv-wp-widget.small .kmv-album-cover {
+      height: auto;
+      min-height: 0; }
+      .kmv-wp-widget.small .kmv-discography .kmv-artist-details, .kmv-wp-widget.small .kmv-top10 .kmv-artist-details, .kmv-wp-widget.small .kmv-blogs .kmv-artist-details, .kmv-wp-widget.small .kmv-album .kmv-artist-details, .kmv-wp-widget.small .kmv-album-cover .kmv-artist-details {
+        padding-left: 0; }
+      .kmv-wp-widget.small .kmv-discography .kmv-albums, .kmv-wp-widget.small .kmv-top10 .kmv-albums, .kmv-wp-widget.small .kmv-blogs .kmv-albums, .kmv-wp-widget.small .kmv-album .kmv-albums, .kmv-wp-widget.small .kmv-album-cover .kmv-albums {
+        height: auto;
+        min-height: 0; }
+      .kmv-wp-widget.small .kmv-discography .kmv-albums-list-container, .kmv-wp-widget.small .kmv-top10 .kmv-albums-list-container, .kmv-wp-widget.small .kmv-blogs .kmv-albums-list-container, .kmv-wp-widget.small .kmv-album .kmv-albums-list-container, .kmv-wp-widget.small .kmv-album-cover .kmv-albums-list-container {
+        position: relative;
+        width: 100%;
+        height: auto;
+        top: auto;
+        right: auto;
+        left: auto;
+        bottom: auto;
+        min-height: 300px; }
+      .kmv-wp-widget.small .kmv-discography .kmv-artist-image, .kmv-wp-widget.small .kmv-discography .kmv-album-image, .kmv-wp-widget.small .kmv-top10 .kmv-artist-image, .kmv-wp-widget.small .kmv-top10 .kmv-album-image, .kmv-wp-widget.small .kmv-blogs .kmv-artist-image, .kmv-wp-widget.small .kmv-blogs .kmv-album-image, .kmv-wp-widget.small .kmv-album .kmv-artist-image, .kmv-wp-widget.small .kmv-album .kmv-album-image, .kmv-wp-widget.small .kmv-album-cover .kmv-artist-image, .kmv-wp-widget.small .kmv-album-cover .kmv-album-image {
+        width: 100%;
+        height: 180px;
+        position: relative; }
+        .kmv-wp-widget.small .kmv-discography .kmv-artist-image img, .kmv-wp-widget.small .kmv-discography .kmv-album-image img, .kmv-wp-widget.small .kmv-top10 .kmv-artist-image img, .kmv-wp-widget.small .kmv-top10 .kmv-album-image img, .kmv-wp-widget.small .kmv-blogs .kmv-artist-image img, .kmv-wp-widget.small .kmv-blogs .kmv-album-image img, .kmv-wp-widget.small .kmv-album .kmv-artist-image img, .kmv-wp-widget.small .kmv-album .kmv-album-image img, .kmv-wp-widget.small .kmv-album-cover .kmv-artist-image img, .kmv-wp-widget.small .kmv-album-cover .kmv-album-image img {
+          width: 100%; }
+      .kmv-wp-widget.small .kmv-discography .kmv-album-image img, .kmv-wp-widget.small .kmv-top10 .kmv-album-image img, .kmv-wp-widget.small .kmv-blogs .kmv-album-image img, .kmv-wp-widget.small .kmv-album .kmv-album-image img, .kmv-wp-widget.small .kmv-album-cover .kmv-album-image img {
+        display: none; }
+      .kmv-wp-widget.small .kmv-discography .kmv-selected-album, .kmv-wp-widget.small .kmv-top10 .kmv-selected-album, .kmv-wp-widget.small .kmv-blogs .kmv-selected-album, .kmv-wp-widget.small .kmv-album .kmv-selected-album, .kmv-wp-widget.small .kmv-album-cover .kmv-selected-album {
+        display: none; }
+      .kmv-wp-widget.small .kmv-discography .kmv-albums-list, .kmv-wp-widget.small .kmv-top10 .kmv-albums-list, .kmv-wp-widget.small .kmv-blogs .kmv-albums-list, .kmv-wp-widget.small .kmv-album .kmv-albums-list, .kmv-wp-widget.small .kmv-album-cover .kmv-albums-list {
+        width: 100%; }
+        .kmv-wp-widget.small .kmv-discography .kmv-albums-list li, .kmv-wp-widget.small .kmv-top10 .kmv-albums-list li, .kmv-wp-widget.small .kmv-blogs .kmv-albums-list li, .kmv-wp-widget.small .kmv-album .kmv-albums-list li, .kmv-wp-widget.small .kmv-album-cover .kmv-albums-list li {
+          width: 32%;
+          margin-left: 1%;
+          padding: 0;
+          border: none;
+          cursor: pointer; }
+          .kmv-wp-widget.small .kmv-discography .kmv-albums-list li .album-image, .kmv-wp-widget.small .kmv-top10 .kmv-albums-list li .album-image, .kmv-wp-widget.small .kmv-blogs .kmv-albums-list li .album-image, .kmv-wp-widget.small .kmv-album .kmv-albums-list li .album-image, .kmv-wp-widget.small .kmv-album-cover .kmv-albums-list li .album-image {
+            width: 100%;
+            background: none !important;
+            height: auto; }
+            .kmv-wp-widget.small .kmv-discography .kmv-albums-list li .album-image img, .kmv-wp-widget.small .kmv-top10 .kmv-albums-list li .album-image img, .kmv-wp-widget.small .kmv-blogs .kmv-albums-list li .album-image img, .kmv-wp-widget.small .kmv-album .kmv-albums-list li .album-image img, .kmv-wp-widget.small .kmv-album-cover .kmv-albums-list li .album-image img {
+              display: block;
+              width: 100%;
+              border: 2px solid rgba(255, 255, 255, 0.5); }
+              .kmv-wp-widget.small .kmv-discography .kmv-albums-list li .album-image img:hover, .kmv-wp-widget.small .kmv-top10 .kmv-albums-list li .album-image img:hover, .kmv-wp-widget.small .kmv-blogs .kmv-albums-list li .album-image img:hover, .kmv-wp-widget.small .kmv-album .kmv-albums-list li .album-image img:hover, .kmv-wp-widget.small .kmv-album-cover .kmv-albums-list li .album-image img:hover {
+                border-color: rgba(255, 255, 255, 0.8); }
+    .kmv-wp-widget.small .kmv-top10 .kmv-songs-list {
+      height: auto;
+      overflow: visible; }
+      .kmv-wp-widget.small .kmv-top10 .kmv-songs-list li {
+        margin-top: 5px; }
+        .kmv-wp-widget.small .kmv-top10 .kmv-songs-list li .duration {
+          font-size: 70%;
+          opacity: .8; }
+    .kmv-wp-widget.small .kmv-releaseinfo {
+      top: 5px; }
+    .kmv-wp-widget.small .kmv-blogs .kmv-blogs-list ul {
+      margin-left: 0; }
+    .kmv-wp-widget.small .kmv-blogs .kmv-blogs-list .kmv-blogbody {
+      display: none; }
+    .kmv-wp-widget.small .kmv-blogs .kmv-blogs-list li {
+      font-size: .8em; }
+  .kmv-wp-widget .kmv-blog-noblog {
+    float: left;
+    margin: 10px; }
+    .kmv-wp-widget .kmv-blog-noblog:after {
+      content: '';
+      clear: both;
+      display: block;
+      height: 1px; }
+  .kmv-wp-widget ul.kmv-songs-list, .kmv-wp-widget ul.kmv-songs-list li {
+    list-style: none; }
+  .kmv-wp-widget ul.kmv-songs-list {
+    padding-left: 0; }
+  .kmv-wp-widget ol.kmv-songs-list {
+    margin-left: 20px;
+    padding-left: 0; }
+    .kmv-wp-widget ol.kmv-songs-list li {
+      padding-left: 0; }
+  .kmv-wp-widget .kmv-songs-list {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;
+    margin: 10px 0 20px; }
+    .kmv-wp-widget .kmv-songs-list li {
+      position: relative;
+      padding-left: 30px; }
+      .kmv-wp-widget .kmv-songs-list li p {
+        margin: 0 !important; }
+      .kmv-wp-widget .kmv-songs-list li .duration {
+        font-size: 70%;
+        opacity: .8; }
+    .kmv-wp-widget .kmv-songs-list .kmv-tracknumber {
+      position: absolute;
+      left: 0;
+      display: inline-block;
+      padding-right: 10px;
+      text-align: right;
+      width: 30px;
+      white-space: nowrap; }
+    .kmv-wp-widget .kmv-songs-list .kmv-duration {
+      position: absolute;
+      right: 0;
+      display: inline-block;
+      text-align: right; }
+    .kmv-wp-widget .kmv-songs-list .kmv-toggle-play {
+      cursor: pointer;
+      width: 18px;
+      height: 100%;
+      font-size: 10px; }
+    .kmv-wp-widget .kmv-songs-list .kmv-toggle-play i {
+      font-size: 16px;
+      line-height: 18px;
+      opacity: .5; }
+    .kmv-wp-widget .kmv-songs-list .kmv-toggle-play i.kmv-icn-pause {
+      display: block; }
+    .kmv-wp-widget .kmv-songs-list .kmv-toggle-play i.kmv-icn-play {
+      display: block; }
+    .kmv-wp-widget .kmv-songs-list .kmv-preview-player {
+      position: absolute;
+      right: 0;
+      top: 5px; }
+    .kmv-wp-widget .kmv-songs-list .kmv-preview-player video {
+      display: none; }
+  .kmv-wp-widget .kmv-artist-details {
+    position: relative;
+    padding-left: 150px;
+    min-height: 140px;
+    z-index: 2; }
+  .kmv-wp-widget .kmv-artist-image {
+    width: 130px;
+    height: 130px;
+    border: 2px solid white;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; }
+    .kmv-wp-widget .kmv-artist-image img {
+      display: none; }
+  .kmv-wp-widget .kmv-discography {
+    min-height: 400px;
+    position: relative; }
+    .kmv-wp-widget .kmv-discography .content {
+      overflow: hidden;
+      padding-left: 60px;
+      position: relative; }
+    .kmv-wp-widget .kmv-discography .kmv-albums {
+      position: relative;
+      z-index: 2;
+      min-height: 80%; }
+    .kmv-wp-widget .kmv-discography .kmv-albums-list-container {
+      width: 60px;
+      position: absolute;
+      left: 0;
+      top: 40px;
+      bottom: 0px;
+      overflow: hidden;
+      overflow-y: auto; }
+      .kmv-wp-widget .kmv-discography .kmv-albums-list-container .kmv-albums-list ul {
+        margin: 0;
+        padding: 0; }
+    .kmv-wp-widget .kmv-discography .kmv-selected-album {
+      margin-left: 60px;
+      z-index: 2;
+      min-height: 300px; }
+      .kmv-wp-widget .kmv-discography .kmv-selected-album ul {
+        list-style: none; }
+    .kmv-wp-widget .kmv-discography .kmv-albums-list {
+      width: 50px;
+      position: relative;
+      z-index: 3; }
+      .kmv-wp-widget .kmv-discography .kmv-albums-list li {
+        display: inline-block;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        overflow: hidden; }
+        .kmv-wp-widget .kmv-discography .kmv-albums-list li .album-image {
+          width: 50px;
+          height: 50px;
+          background-position: center center;
+          background-size: cover; }
+          .kmv-wp-widget .kmv-discography .kmv-albums-list li .album-image img {
+            display: none; }
+        .kmv-wp-widget .kmv-discography .kmv-albums-list li h6 {
+          display: none; }
+        .kmv-wp-widget .kmv-discography .kmv-albums-list li.active {
+          border: 2px solid #85db18;
+          margin-bottom: 0; }
+  .kmv-wp-widget .kmv-blogs .kmv-blogs-list {
+    position: relative; }
+    .kmv-wp-widget .kmv-blogs .kmv-blogs-list ul {
+      list-style: none;
+      margin-left: 0; }
+    .kmv-wp-widget .kmv-blogs .kmv-blogs-list p:last-child {
+      margin-bottom: 0; }
+    .kmv-wp-widget .kmv-blogs .kmv-blogs-list .titlelink {
+      font-size: 1.2em;
+      padding-right: 100px;
+      display: inline-block; }
+    .kmv-wp-widget .kmv-blogs .kmv-blogs-list li {
+      margin-top: 20px;
+      position: relative; }
+    .kmv-wp-widget .kmv-blogs .kmv-blogs-list .date {
+      text-align: right;
+      opacity: .7;
+      font-size: .7em;
+      position: absolute;
+      top: 0;
+      right: 0; }
+  .kmv-wp-widget .kmv-social-channels {
+    margin: 10px 0; }
+    .kmv-wp-widget .kmv-social-channels a {
+      text-transform: none;
+      text-decoration: none;
+      color: inherit;
+      border-bottom: none;
+      box-shadow: none; }
+    .kmv-wp-widget .kmv-social-channels i {
+      margin: 5px 10px;
+      font-size: 20px; }
+      .kmv-wp-widget .kmv-social-channels i:hover.kmi-twitter-square {
+        color: #1da1f2; }
+      .kmv-wp-widget .kmv-social-channels i:hover.kmi-facebook-square {
+        color: #4e69a2; }
+      .kmv-wp-widget .kmv-social-channels i:hover.kmi-globe {
+        color: #85db18; }
+      .kmv-wp-widget .kmv-social-channels i:hover.kmi-youtube {
+        color: #e62117; }
+      .kmv-wp-widget .kmv-social-channels i:hover.kmi-instagram {
+        color: #004879; }
+      .kmv-wp-widget .kmv-social-channels i:hover.kmi-soundcloud {
+        color: #fd7422; }
+      .kmv-wp-widget .kmv-social-channels i:hover.kmi-lastfm {
+        color: #b90000; }
